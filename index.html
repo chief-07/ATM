@@ -57,7 +57,7 @@
             let option = prompt("what do want to do today?. 1. withdraw 2. check balance 3. deposit 4. cancel")
             switch (option) {
                 case "1":
-                    let withdrawAmount = prompt("How much do you want to withdraw")
+                    let withdrawAmount = parseInt(prompt("How much do you want to withdraw"))
                     balance = balance - withdrawAmount
                     console.log(`Success!. you have withdrawn N${withdrawAmount}. your balance is N${balance}`)
                     break;
@@ -65,7 +65,7 @@
                     console.log(`Your balance is N${balance}`)
                     break;
                 case "3":
-                    let depositAmount = prompt("how much do you want to deposit")
+                    let depositAmount = parseInt(prompt("how much do you want to deposit"))
                     balance = balance + depositAmount
                     console.log(`Success!. you have deposited N${depositAmount}. Your new balance is N${balance}`)
                     break;
