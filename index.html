@@ -52,31 +52,42 @@
         balance = 1000000
         pinbase = ["1234", "1419", "2222", "1111", "3333", "4444", "5555", "6666", "7777", "8888", "9999", "2345", "1010", "2020", "3030", "4040", "5050", "6060", "7070", "8080", "9090"]
         let pin = prompt("what is your pin?: ")
+
         if (pinbase.includes(pin)) {
             console.log("Hello User!. Welcome to your account")
             let option = prompt("what do want to do today?. 1. withdraw 2. check balance 3. deposit 4. cancel")
+            function withdraw() {
+                let withdrawAmount = parseInt(prompt("How much do you want to withdraw"))
+                balance = balance - withdrawAmount
+
+                console.log(`Success!. you have withdrawn N${withdrawAmount}. your balance is N${balance}`)
+            }
+            function bankBalance() {
+                console.log(`Your balance is N${balance}`)
+            }
+            function deposit() {
+                let depositAmount = parseInt(prompt("how much do you want to deposit"))
+                balance = balance + depositAmount
+                console.log(`Success!. you have deposited N${depositAmount}. Your new balance is N${balance}`)
+            }
+            function cancel() {
+                console.log("Goodbye. Thank you for banking with us")
+            }
+
             switch (option) {
-                case "1":
-                    let withdrawAmount = parseInt(prompt("How much do you want to withdraw"))
-                    balance = balance - withdrawAmount
-                    console.log(`Success!. you have withdrawn N${withdrawAmount}. your balance is N${balance}`)
+                case "1": withdraw()
                     break;
-                case "2":
-                    console.log(`Your balance is N${balance}`)
+                case "2": bankBalance()
                     break;
-                case "3":
-                    let depositAmount = parseInt(prompt("how much do you want to deposit"))
-                    balance = balance + depositAmount
-                    console.log(`Success!. you have deposited N${depositAmount}. Your new balance is N${balance}`)
+                case "3": deposit()
                     break;
-                case "4":
-                    console.log("Goodbye. Thank you for banking with us")
+                case "4": cancel()
                     break;
             }
+
         }
 
         else { console.log("incorrect pin you will be baned after 4 tries") }
-    </script>
-</body>
 
-</html>
+
+    
